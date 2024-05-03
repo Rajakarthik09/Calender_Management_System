@@ -380,7 +380,7 @@ namespace Calender_Management_System
             using (MySqlConnection connection = new MySqlConnection(connstr))
             {
                 connection.Open();
-                string checkQuery = "SELECT COUNT(*) FROM pcs_events WHERE start_time = @StartTime AND date = @Date";
+                string checkQuery = "SELECT COUNT(*) FROM cms_events WHERE start_time = @StartTime AND date = @Date";
                 using (MySqlCommand checkCmd = new MySqlCommand(checkQuery, connection))
                 {
                     checkCmd.Parameters.AddWithValue("@StartTime", startTime);
@@ -433,7 +433,7 @@ namespace Calender_Management_System
             using (MySqlConnection connection = new MySqlConnection(connstr))
             {
                 connection.Open();
-                string selectQuery = "SELECT date, start_time, end_time FROM pcs_events WHERE event_id = @Event_Id";
+                string selectQuery = "SELECT date, start_time, end_time FROM cms_events WHERE event_id = @Event_Id";
                 using (MySqlCommand cmd = new MySqlCommand(selectQuery, connection))
                 {
                     cmd.Parameters.AddWithValue("@Event_Id", event_id);
@@ -492,7 +492,7 @@ namespace Calender_Management_System
             using (MySqlConnection connection = new MySqlConnection(connstr))
             {
                 connection.Open();
-                string selectQuery = "SELECT date, start_time, end_time FROM pcs_events WHERE date = @Date";
+                string selectQuery = "SELECT date, start_time, end_time FROM cms_events WHERE date = @Date";
                 using (MySqlCommand cmd = new MySqlCommand(selectQuery, connection))
                 {
                     cmd.Parameters.AddWithValue("@Date", date);
